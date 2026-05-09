@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logoPrime from '@/assets/logo-prime-transparent.png';
+import { goToHomeSection, goToRouteTop } from '@/lib/navigation';
 
 const navLinks = [
   { name: 'Home', id: 'home' },
@@ -18,20 +19,6 @@ const navLinks = [
   { name: 'Portfólio', id: 'portfolio' },
   { name: 'Contato', id: 'contato' },
 ];
-
-const scrollToSection = (id: string) => {
-  // If not on home page, navigate first
-  if (window.location.hash !== '' && window.location.hash !== '#/') {
-    window.location.hash = '/';
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 300);
-  } else {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +41,7 @@ export function Header() {
       <div className="container-prime">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }} className="flex items-center gap-3">
+          <a href="#/" onClick={(e) => { e.preventDefault(); goToHomeSection('home'); }} className="flex items-center gap-3">
             <img src={logoPrime} alt="Prime Engenharia e Consultoria" className="h-24 w-auto object-contain" />
           </a>
 
@@ -73,12 +60,16 @@ export function Header() {
                   {isServicesOpen && (
                     <div className="absolute top-full left-0 mt-2 w-64 bg-card rounded-xl border border-border/50 shadow-lg py-2 animate-fade-in">
                       {link.submenu.map((sub) => (
-                        <a
-                          key={sub.name}
-                          href={sub.href}
-                          onClick={() => setIsServicesOpen(false)}
-                          className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-accent transition-colors"
-                        >
+                          <a
+                            key={sub.name}
+                            href={sub.href}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              goToRouteTop(sub.href.replace('#', ''));
+                              setIsServicesOpen(false);
+                            }}
+                            className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-accent transition-colors"
+                          >
                           {sub.name}
                         </a>
                       ))}
@@ -88,7 +79,7 @@ export function Header() {
               ) : (
                 <button
                   key={link.name}
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => goToHomeSection(link.id)}
                   className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200 bg-transparent border-none cursor-pointer"
                 >
                   {link.name}
@@ -104,7 +95,7 @@ export function Header() {
               (73) 9 8804-3664
             </a>
             <Button variant="prime" size="default" asChild>
-              <a href="#contato">Fale Conosco</a>
+              <a href="#/" onClick={(e) => { e.preventDefault(); goToHomeSection('contato'); }}>Fale Conosco</a>
             </Button>
           </div>
 
@@ -138,7 +129,12 @@ export function Header() {
                           <a
                             key={sub.name}
                             href={sub.href}
-                            onClick={() => { setIsMenuOpen(false); setIsMobileServicesOpen(false); }}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              goToRouteTop(sub.href.replace('#', ''));
+                              setIsMenuOpen(false);
+                              setIsMobileServicesOpen(false);
+                            }}
                             className="block text-sm text-foreground/70 hover:text-primary py-2 transition-colors"
                           >
                             {sub.name}
@@ -150,7 +146,7 @@ export function Header() {
                 ) : (
                   <button
                     key={link.name}
-                    onClick={() => { scrollToSection(link.id); setIsMenuOpen(false); }}
+                    onClick={() => { goToHomeSection(link.id); setIsMenuOpen(false); }}
                     className="text-base font-medium text-foreground/80 hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer text-left"
                   >
                     {link.name}
@@ -163,7 +159,7 @@ export function Header() {
                   (73) 9 8804-3664
                 </a>
                 <Button variant="prime" asChild>
-                  <a href="#contato">Fale Conosco</a>
+                  <a href="#/" onClick={(e) => { e.preventDefault(); goToHomeSection('contato'); }}>Fale Conosco</a>
                 </Button>
               </div>
             </nav>

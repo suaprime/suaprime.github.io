@@ -69,7 +69,7 @@ export function ServicePageLayout({
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mb-8 drop-shadow">
               {heroSubtitle}
             </p>
-            <Button variant="prime" size="lg" asChild>
+            <Button variant="consultor" size="lg" asChild>
               <a href="https://wa.me/5573988043664" target="_blank" rel="noopener noreferrer" className="gap-2">
                 <MessageCircle className="w-4 h-4" />
                 Fale com um consultor

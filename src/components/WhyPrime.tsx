@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import whyPrimeImage from '@/assets/why-prime.jpg';
+const whyPrimeImage = '/Images/porque_a_prime.PNG';
 
 const highlights = [
   'Experiência no ramo',
@@ -56,7 +56,8 @@ export function WhyPrime() {
             <img
               src={whyPrimeImage}
               alt="Equipe Prime Consultoria"
-              className="w-full h-auto object-cover"
+              className="w-full h-[320px] md:h-[420px] lg:h-[520px] object-cover object-center"
+              loading="lazy"
             />
           </div>
         </div>

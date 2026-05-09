@@ -1,45 +1,49 @@
-import { useCallback, useEffect, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import heroSlide1 from '@/assets/corporativa.jpg';
-import heroSlide2 from '@/assets/hero/slide-2.jpg';
-import heroSlide3 from '@/assets/hero/slide-3.jpg';
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import heroSlide1 from "@/assets/corporativa.jpg";
+import heroSlide2 from "@/assets/hero/slide-2.jpg";
+import heroSlide3 from "@/assets/hero/slide-3.jpg";
+import { goToHomeSection } from "@/lib/navigation";
 
 const slides = [
   {
     image: heroSlide1,
-    title: 'Consultoria Prime',
-    subtitle: 'Excelência em consultoria industrial para negócios que valorizam resultados, qualidade e evolução contínua.',
-    cta: { text: 'Fale conosco', href: '#contato' },
+    title: "Consultoria Industrial Especializada em Alimentos e Bebidas",
+    subtitle:
+      "Excelencia em consultoria industrial para negocios que valorizam resultados, qualidade e evolucao continua.",
+    cta: { text: "Fale conosco", section: "contato" },
     centered: true,
   },
   {
     image: heroSlide2,
-    title: 'Prime Alimentos e Bebidas',
-    subtitle: 'Consultoria especializada na indústria de alimentos e bebidas com foco em qualidade e regulamentação.',
-    cta: { text: 'Saiba mais', href: '#servicos' },
+    title: "Prime Alimentos e Bebidas",
+    subtitle:
+      "Consultoria especializada na industria de alimentos e bebidas com foco em qualidade e regulamentacao.",
+    cta: { text: "Saiba mais", section: "servicos" },
     centered: false,
   },
   {
     image: heroSlide3,
-    title: 'Prime Produção e Qualidade',
-    subtitle: 'Implementação de ferramentas técnicas para padronização e eficiência industrial.',
-    cta: { text: 'Saiba mais', href: '#servicos' },
+    title: "Prime Producao e Qualidade",
+    subtitle:
+      "Implementacao de ferramentas tecnicas para padronizacao e eficiencia industrial.",
+    cta: { text: "Saiba mais", section: "servicos" },
     centered: false,
   },
 ];
 
 const highlights = [
-  'Consultoria especializada',
-  'Clientes satisfeitos em 8 estados brasileiros',
-  'Especialistas em regularização',
+  "Consultoria especializada",
+  "Clientes satisfeitos em 8 estados brasileiros",
+  "Especialistas em regularizacao",
 ];
 
 const stats = [
-  { value: '+9', label: 'Anos de experiência' },
-  { value: '+8', label: 'Estados atendidos e EUA' },
-  { value: '+150', label: 'Empresas atendidas' },
+  { value: "+9", label: "Anos de experiencia" },
+  { value: "+8", label: "Estados atendidos e EUA" },
+  { value: "+150", label: "Empresas atendidas" },
 ];
 
 export function Hero() {
@@ -52,42 +56,42 @@ export function Hero() {
   useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
 
     const interval = setInterval(() => emblaApi.scrollNext(), 8000);
     return () => {
       clearInterval(interval);
-      emblaApi.off('select', onSelect);
+      emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
 
   return (
     <section id="home" className="relative pt-20">
-      {/* Carousel */}
       <div className="relative overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide, index) => (
-            <div key={index} className="relative flex-[0_0_100%] min-w-0">
-              <div className="relative h-[480px] md:h-[560px] lg:h-[620px]">
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+            <div key={index} className="relative min-w-0 flex-[0_0_100%]">
+              <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
+                <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-foreground/60" />
-                <div className="relative h-full flex items-center">
-                  <div className={`container-prime ${slide.centered ? 'text-center' : ''}`}>
-                    <div className={slide.centered ? 'max-w-3xl mx-auto' : 'max-w-2xl'}>
-                      <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 drop-shadow-lg">
+                <div className="relative flex h-full items-center">
+                  <div className={`container-prime ${slide.centered ? "text-center" : ""}`}>
+                    <div className={slide.centered ? "mx-auto max-w-4xl" : "max-w-2xl"}>
+                      <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg md:text-5xl lg:text-6xl">
                         {slide.title}
                       </h1>
-                      <p className="text-lg md:text-xl text-white/90 mb-8 drop-shadow">
-                        {slide.subtitle}
-                      </p>
+                      <p className="mb-8 text-lg text-white/90 drop-shadow md:text-xl">{slide.subtitle}</p>
                       <Button variant="prime" size="lg" asChild>
-                        <a href={slide.cta.href} className="gap-2">
+                        <a
+                          href="#/"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            goToHomeSection(slide.cta.section);
+                          }}
+                          className="gap-2"
+                        >
                           {slide.cta.text}
-                          <ArrowRight className="w-4 h-4" />
+                          <ArrowRight className="h-4 w-4" />
                         </a>
                       </Button>
                     </div>
@@ -98,30 +102,28 @@ export function Hero() {
           ))}
         </div>
 
-        {/* Navigation arrows */}
         <button
           onClick={scrollPrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm items-center justify-center text-white hover:bg-white/40 transition-colors hidden md:flex"
+          className="absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/40 md:flex"
           aria-label="Slide anterior"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="h-5 w-5" />
         </button>
         <button
           onClick={scrollNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm items-center justify-center text-white hover:bg-white/40 transition-colors hidden md:flex"
-          aria-label="Próximo slide"
+          className="absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/40 md:flex"
+          aria-label="Proximo slide"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="h-5 w-5" />
         </button>
 
-        {/* Dots */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => emblaApi?.scrollTo(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === selectedIndex ? 'bg-primary' : 'bg-white/50'
+              className={`h-3 w-3 rounded-full transition-colors ${
+                index === selectedIndex ? "bg-primary" : "bg-white/50"
               }`}
               aria-label={`Ir para slide ${index + 1}`}
             />
@@ -129,13 +131,12 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Highlights strip - flush under carousel */}
       <div className="bg-accent py-4">
         <div className="container-prime">
           <div className="flex flex-wrap justify-center gap-8">
             {highlights.map((item, index) => (
               <div key={index} className="flex items-center gap-2 text-base font-medium text-foreground/80">
-                <CheckCircle2 className="w-4 h-4 text-primary" />
+                <CheckCircle2 className="h-4 w-4 text-primary" />
                 {item}
               </div>
             ))}
@@ -143,19 +144,16 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Stats blocks - tight spacing */}
       <div className="container-prime py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 rounded-2xl overflow-hidden shadow-lg">
+        <div className="grid grid-cols-1 overflow-hidden rounded-2xl shadow-lg md:grid-cols-3">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`p-8 text-center ${
-                index === 1
-                  ? 'bg-secondary text-secondary-foreground'
-                  : 'bg-primary text-primary-foreground'
+              className={`p-8 text-center transition-transform duration-300 hover:scale-[1.01] ${
+                index === 1 ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"
               }`}
             >
-              <div className="text-5xl md:text-6xl font-heading font-bold mb-2">{stat.value}</div>
+              <div className="mb-2 text-5xl font-heading font-bold md:text-6xl">{stat.value}</div>
               <div className="text-base font-medium opacity-90">{stat.label}</div>
             </div>
           ))}

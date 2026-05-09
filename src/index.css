@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -120,6 +120,11 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
+  a,
+  button {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ring-offset-background;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold tracking-tight;
   }
@@ -131,7 +136,7 @@
   }
   
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-14 md:py-20 lg:py-24;
   }
   
   .text-gradient-primary {

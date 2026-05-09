@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import imgAlimentos from '@/assets/services/alimentos.jpg';
 import imgProducao from '@/assets/services/producao.jpg';
 import imgAmbiental from '@/assets/services/ambiental.jpg';
@@ -9,21 +10,21 @@ const services = [
     title: 'Prime Alimentos e Bebidas',
     shortDesc: 'Consultoria especializada na indústria de alimentos e bebidas.',
     areas: ['Regularização', 'Qualidade', 'Conformidade'],
-    href: '#/servicos/alimentos',
+    href: '/servicos/alimentos',
   },
   {
     image: imgProducao,
     title: 'Prime Produção e Qualidade',
     shortDesc: 'Implementação de ferramentas técnicas para padronização e eficiência industrial.',
     areas: ['APPCC', 'ISO22000', 'BPF'],
-    href: '#/servicos/producao',
+    href: '/servicos/producao',
   },
   {
     image: imgAmbiental,
     title: 'Prime Ambiental',
     shortDesc: 'Gestão ambiental estratégica para eficiência e responsabilidade industrial.',
     areas: ['Licenciamento', 'PGRS', 'Sustentabilidade'],
-    href: '#/servicos/ambiental',
+    href: '/servicos/ambiental',
   },
 ];
 
@@ -48,9 +49,10 @@ export function Services() {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <a
+            <Link
               key={index}
-              href={service.href}
+              to={service.href}
+              onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
               className="group block bg-card rounded-xl overflow-hidden border border-border/50 transition-all duration-300 hover:shadow-card-hover hover:scale-[1.03] hover:-translate-y-1 hover:border-primary/30"
             >
               <div className="relative h-52 overflow-hidden">
@@ -83,7 +85,7 @@ export function Services() {
                   <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

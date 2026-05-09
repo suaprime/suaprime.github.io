@@ -7,8 +7,9 @@ import {
   ClipboardCheck, BarChart3, Settings, TrendingUp, RefreshCw,
   MessageCircle,
 } from 'lucide-react';
-import whyPrimeImage from '@/assets/why-prime.jpg';
 import flowerWatermark from '@/assets/flower-watermark.png';
+import { goToHomeSection } from '@/lib/navigation';
+const whyPrimeImage = '/Images/porque_a_prime.PNG';
 
 const values = [
   { icon: Shield, title: 'Ética', description: 'Transparência em todas as ações.' },
@@ -54,8 +55,8 @@ export default function WhyPrimePage() {
             <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto mb-8">
               Desde 2015 impulsionando desempenho, conformidade e resultados de industriais de todos os tamanhos no Brasil e nos EUA.
             </p>
-            <Button variant="prime" size="lg" asChild>
-              <a href="/#contato" className="gap-2">
+            <Button variant="consultor" size="lg" asChild>
+              <a href="#/" onClick={(e) => { e.preventDefault(); goToHomeSection('contato'); }} className="gap-2">
                 Fale com um consultor
                 <ArrowRight className="w-4 h-4" />
               </a>
@@ -82,7 +83,7 @@ export default function WhyPrimePage() {
                 </p>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src={whyPrimeImage} alt="Equipe Prime Consultoria" className="w-full h-auto object-cover" />
+                <img src={whyPrimeImage} alt="Equipe Prime Consultoria" className="h-[320px] w-full object-cover object-center md:h-[420px]" loading="lazy" />
               </div>
             </div>
           </div>
@@ -218,7 +219,7 @@ export default function WhyPrimePage() {
               href="https://wa.me/5573988043664"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-secondary text-secondary-foreground font-bold px-8 py-4 rounded-lg hover:bg-secondary/90 transition-colors text-lg shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-3 bg-orange-500 text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
             >
               <MessageCircle className="w-5 h-5" />
               Fale com um consultor

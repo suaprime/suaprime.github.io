@@ -8,13 +8,11 @@ import clientBomD from '@/assets/clients/bom-d.png';
 import clientJequitibaChocolate from '@/assets/clients/jequitiba-chocolate.png';
 import clientSucoGabriela from '@/assets/clients/suco-gabriela.jpg';
 import clientBahiaSucos from '@/assets/clients/Bahia.Sucos.png';
-import clientBomSabor from '@/assets/clients/BomSabor.png';
 import clientDegPolpas from '@/assets/clients/Deg_Polpas.png';
 import clientFrututti from '@/assets/clients/Frututti.jfif';
 import clientMegaAcai from '@/assets/clients/MegaAçai.png';
 import clientNatureFrutti from '@/assets/clients/Nature.Frutti.png';
 import clientNightBlue from '@/assets/clients/Night Blue energéticos.jfif';
-import clientPolpaEnis from '@/assets/clients/Polpa Enis logo.png';
 import clientPolpaDoVale from '@/assets/clients/Polpa.do.Vale.png';
 import clientPolpaLidery from '@/assets/clients/Polpa_Lidery.png';
 import clientPolpasIpiau from '@/assets/clients/Polpas.Ipiau.png';
@@ -22,7 +20,6 @@ import clientPolpasDesfrutt from '@/assets/clients/Polpas_Desfrutt.png';
 import clientPolpasLaurena from '@/assets/clients/Polpas_laurena.png';
 import clientPomar from '@/assets/clients/Pomar.png';
 import clientRealDoVale from '@/assets/clients/Real.do.Vale.png';
-import clientRefrigerantesOba from '@/assets/clients/Refrigerantes.Oba.png';
 import clientSaborNatural from '@/assets/clients/Sabor Natural.png';
 import clientSaborTropical from '@/assets/clients/Sabor.Tropical.png';
 import clientSantaRosa from '@/assets/clients/SantaRosa.png';
@@ -38,13 +35,11 @@ const clients = [
   { name: 'Jequitibá Chocolate Gourmet', logo: clientJequitibaChocolate },
   { name: 'Suco Gabriela', logo: clientSucoGabriela },
   { name: 'Bahia Sucos', logo: clientBahiaSucos },
-  { name: 'Bom Sabor', logo: clientBomSabor },
   { name: 'Deg Polpas', logo: clientDegPolpas },
   { name: 'Frututti', logo: clientFrututti },
   { name: 'Mega Açaí', logo: clientMegaAcai },
   { name: 'Nature Frutti', logo: clientNatureFrutti },
   { name: 'Night Blue Energéticos', logo: clientNightBlue },
-  { name: 'Polpa Enis', logo: clientPolpaEnis },
   { name: 'Polpa do Vale', logo: clientPolpaDoVale },
   { name: 'Polpa Lidery', logo: clientPolpaLidery },
   { name: 'Polpas Ipiau', logo: clientPolpasIpiau },
@@ -52,7 +47,6 @@ const clients = [
   { name: 'Polpas Laurena', logo: clientPolpasLaurena },
   { name: 'Pomar', logo: clientPomar },
   { name: 'Real do Vale', logo: clientRealDoVale },
-  { name: 'Refrigerantes Oba', logo: clientRefrigerantesOba },
   { name: 'Sabor Natural', logo: clientSaborNatural },
   { name: 'Sabor Tropical', logo: clientSaborTropical },
   { name: 'Santa Rosa', logo: clientSantaRosa },
@@ -98,11 +92,12 @@ export function Portfolio() {
                   key={index}
                   className="flex-[0_0_40%] sm:flex-[0_0_28%] md:flex-[0_0_20%] lg:flex-[0_0_16%] min-w-0"
                 >
-                  <div className="bg-card rounded-xl p-6 flex items-center justify-center border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 aspect-square group">
+                  <div className="bg-card rounded-xl p-6 flex items-center justify-center border border-border/50 hover:border-primary/35 hover:shadow-card-hover transition-all duration-500 aspect-square group hover:-translate-y-0.5">
                     <img
                       src={client.logo}
                       alt={client.name}
-                      className="max-w-full max-h-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                      className="max-w-full max-h-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-75 group-hover:opacity-100 group-hover:scale-105 saturate-[0.85] group-hover:saturate-100"
+                      loading="lazy"
                     />
                   </div>
                 </div>

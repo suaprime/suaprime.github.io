@@ -1,10 +1,6 @@
 import logoPrimeWhite from '@/assets/logo-prime-white.png';
 import { Instagram, MessageCircle } from 'lucide-react';
-
-const scrollToSection = (id: string) => {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth' });
-};
+import { goToHomeSection, goToRouteTop } from '@/lib/navigation';
 
 const footerLinks = {
   services: [
@@ -65,6 +61,10 @@ export function Footer() {
                 <li key={index}>
                   <a 
                     href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      goToRouteTop(link.href.replace('#', ''));
+                    }}
                     className="text-sm text-background/70 hover:text-primary transition-colors"
                   >
                     {link.name}
@@ -81,7 +81,7 @@ export function Footer() {
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   <button 
-                    onClick={() => scrollToSection(link.id)}
+                    onClick={() => goToHomeSection(link.id)}
                     className="text-sm text-background/70 hover:text-primary transition-colors bg-transparent border-none cursor-pointer p-0"
                   >
                     {link.name}
