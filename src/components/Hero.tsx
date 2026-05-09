@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import heroSlide1 from "@/assets/corporativa.jpg";
 import heroSlide2 from "@/assets/hero/slide-2.jpg";
 import heroSlide3 from "@/assets/hero/slide-3.jpg";
-import { goToHomeSection } from "@/lib/navigation";
+import { goToHomeSection, goToRouteTop } from "@/lib/navigation";
 
 const slides = [
   {
@@ -21,7 +21,7 @@ const slides = [
     title: "Prime Alimentos e Bebidas",
     subtitle:
       "Consultoria especializada na industria de alimentos e bebidas com foco em qualidade e regulamentacao.",
-    cta: { text: "Saiba mais", section: "servicos" },
+    cta: { text: "Saiba mais", route: "/servicos/alimentos" },
     centered: false,
   },
   {
@@ -29,7 +29,7 @@ const slides = [
     title: "Prime Producao e Qualidade",
     subtitle:
       "Implementacao de ferramentas tecnicas para padronizacao e eficiencia industrial.",
-    cta: { text: "Saiba mais", section: "servicos" },
+    cta: { text: "Saiba mais", route: "/servicos/producao" },
     centered: false,
   },
 ];
@@ -86,7 +86,13 @@ export function Hero() {
                           href="#/"
                           onClick={(e) => {
                             e.preventDefault();
-                            goToHomeSection(slide.cta.section);
+                            if (slide.cta.route) {
+                              goToRouteTop(slide.cta.route);
+                              return;
+                            }
+                            if (slide.cta.section) {
+                              goToHomeSection(slide.cta.section);
+                            }
                           }}
                           className="gap-2"
                         >
