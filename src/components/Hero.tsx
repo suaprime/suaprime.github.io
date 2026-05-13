@@ -14,6 +14,7 @@ const slides = [
     subtitle:
       "Excelência em consultoria industrial para negócios que valorizam resultados, qualidade e evolução contínua.",
     cta: { text: "Fale conosco", section: "contato" },
+    split: true,
     centered: true,
   },
   {
@@ -71,39 +72,77 @@ export function Hero() {
         <div className="flex">
           {slides.map((slide, index) => (
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
-              <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
-                <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-foreground/60" />
-                <div className="relative flex h-full items-center">
-                  <div className={`container-prime ${slide.centered ? "text-center" : ""}`}>
-                    <div className={slide.centered ? "mx-auto max-w-4xl" : "max-w-2xl"}>
-                      <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg md:text-5xl lg:text-6xl">
-                        {slide.title}
-                      </h1>
-                      <p className="mb-8 text-lg text-white/90 drop-shadow md:text-xl">{slide.subtitle}</p>
-                      <Button variant="prime" size="lg" asChild>
-                        <a
-                          href="#/"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            if (slide.cta.route) {
-                              goToRouteTop(slide.cta.route);
-                              return;
-                            }
-                            if (slide.cta.section) {
-                              goToHomeSection(slide.cta.section);
-                            }
-                          }}
-                          className="gap-2"
-                        >
-                          {slide.cta.text}
-                          <ArrowRight className="h-4 w-4" />
-                        </a>
-                      </Button>
+              {slide.split ? (
+                <div className="container-prime pb-14 pt-4 md:pt-6">
+                  <div className="grid min-h-[500px] overflow-hidden rounded-[2rem] border border-border/60 bg-card shadow-xl md:min-h-[580px] lg:min-h-[640px] lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]">
+                    <div className="flex items-center bg-[linear-gradient(135deg,hsl(var(--background))_0%,hsl(var(--accent))_100%)] px-6 py-12 sm:px-10 lg:px-14">
+                      <div className="max-w-2xl">
+                        <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-foreground md:text-5xl lg:text-6xl">
+                          {slide.title}
+                        </h1>
+                        <p className="mb-8 text-lg text-muted-foreground md:text-xl">{slide.subtitle}</p>
+                        <Button variant="prime" size="lg" asChild>
+                          <a
+                            href="#/"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              if (slide.cta.route) {
+                                goToRouteTop(slide.cta.route);
+                                return;
+                              }
+                              if (slide.cta.section) {
+                                goToHomeSection(slide.cta.section);
+                              }
+                            }}
+                            className="gap-2"
+                          >
+                            {slide.cta.text}
+                            <ArrowRight className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="relative min-h-[260px] bg-muted lg:min-h-full">
+                      <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
                     </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
+                  <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-foreground/60" />
+                  <div className="relative flex h-full items-center">
+                    <div className={`container-prime ${slide.centered ? "text-center" : ""}`}>
+                      <div className={slide.centered ? "mx-auto max-w-4xl" : "max-w-2xl"}>
+                        <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg md:text-5xl lg:text-6xl">
+                          {slide.title}
+                        </h1>
+                        <p className="mb-8 text-lg text-white/90 drop-shadow md:text-xl">{slide.subtitle}</p>
+                        <Button variant="prime" size="lg" asChild>
+                          <a
+                            href="#/"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              if (slide.cta.route) {
+                                goToRouteTop(slide.cta.route);
+                                return;
+                              }
+                              if (slide.cta.section) {
+                                goToHomeSection(slide.cta.section);
+                              }
+                            }}
+                            className="gap-2"
+                          >
+                            {slide.cta.text}
+                            <ArrowRight className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
