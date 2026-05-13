@@ -39,13 +39,13 @@ export function Portfolio() {
       <div className="container-prime">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-            Nosso Portfolio
+            Nosso Portfólio
           </span>
           <h2 className="mb-6 text-3xl font-heading font-bold text-foreground md:text-4xl">
-            Empresas que <span className="text-primary">confiam</span> em nos
+            Empresas que <span className="text-primary">confiam</span> em nós
           </h2>
           <p className="text-lg text-muted-foreground">
-            Temos orgulho de trabalhar com empresas que buscam excelencia e qualidade.
+            Temos orgulho de trabalhar com empresas que buscam excelência e qualidade.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export function Portfolio() {
           <button
             onClick={scrollNext}
             className="absolute -right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-md transition-colors hover:bg-primary hover:text-primary-foreground md:flex"
-            aria-label="Proximo"
+            aria-label="Próximo"
           >
             <ChevronRight className="h-5 w-5" />
           </button>

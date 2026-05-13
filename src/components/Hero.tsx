@@ -12,7 +12,7 @@ const slides = [
     image: heroSlide1,
     title: "Consultoria Industrial Especializada em Alimentos e Bebidas",
     subtitle:
-      "Excelencia em consultoria industrial para negocios que valorizam resultados, qualidade e evolucao continua.",
+      "Excelência em consultoria industrial para negócios que valorizam resultados, qualidade e evolução contínua.",
     cta: { text: "Fale conosco", section: "contato" },
     centered: true,
   },
@@ -20,15 +20,15 @@ const slides = [
     image: heroSlide2,
     title: "Prime Alimentos e Bebidas",
     subtitle:
-      "Consultoria especializada na industria de alimentos e bebidas com foco em qualidade e regulamentacao.",
+      "Consultoria especializada na indústria de alimentos e bebidas com foco em qualidade e regulamentação.",
     cta: { text: "Saiba mais", route: "/servicos/alimentos" },
     centered: false,
   },
   {
     image: heroSlide3,
-    title: "Prime Producao e Qualidade",
+    title: "Prime Produção e Qualidade",
     subtitle:
-      "Implementacao de ferramentas tecnicas para padronizacao e eficiencia industrial.",
+      "Implementação de ferramentas técnicas para padronização e eficiência industrial.",
     cta: { text: "Saiba mais", route: "/servicos/producao" },
     centered: false,
   },
@@ -37,11 +37,11 @@ const slides = [
 const highlights = [
   "Consultoria especializada",
   "Clientes satisfeitos em 8 estados brasileiros",
-  "Especialistas em regularizacao",
+  "Especialistas em regularização",
 ];
 
 const stats = [
-  { value: "+9", label: "Anos de experiencia" },
+  { value: "+9", label: "Anos de experiência" },
   { value: "+8", label: "Estados atendidos e EUA" },
   { value: "+150", label: "Empresas atendidas" },
 ];
@@ -118,7 +118,7 @@ export function Hero() {
         <button
           onClick={scrollNext}
           className="absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/40 md:flex"
-          aria-label="Proximo slide"
+          aria-label="Próximo slide"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
