@@ -74,12 +74,12 @@ export function Hero() {
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
                 <div className="container-prime pb-14 pt-4 md:pt-6">
-                  <div className="grid min-h-[500px] overflow-hidden rounded-[2rem] border border-border/60 bg-card shadow-xl md:min-h-[580px] lg:min-h-[640px] lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.05fr)]">
+                  <div className="grid min-h-[500px] overflow-hidden rounded-[2rem] border border-border/60 bg-card shadow-xl md:min-h-[580px] lg:min-h-[640px] lg:grid-cols-[minmax(420px,1.15fr)_minmax(0,0.85fr)]">
                     <div className="relative min-h-[320px] bg-[#686868] lg:min-h-full">
                       <img
                         src={slide.image}
                         alt={slide.title}
-                        className="absolute inset-0 h-full w-full object-cover object-[24%_center]"
+                        className="absolute inset-0 h-full w-full object-cover object-[12%_center]"
                       />
                     </div>
 
