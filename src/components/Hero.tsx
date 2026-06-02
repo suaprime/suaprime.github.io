@@ -73,45 +73,85 @@ export function Hero() {
           {slides.map((slide, index) => (
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
-                <div className="container-prime pb-14 pt-4 md:pt-6">
-                  <div className="grid min-h-[500px] overflow-hidden rounded-[2rem] border border-border/60 bg-card shadow-xl md:min-h-[580px] lg:min-h-[640px] lg:grid-cols-[minmax(420px,1.15fr)_minmax(0,0.85fr)]">
-                    <div className="relative min-h-[320px] bg-[#686868] lg:min-h-full">
-                      <img
-                        src={slide.image}
-                        alt={slide.title}
-                        className="absolute inset-0 h-full w-full object-cover object-[12%_center]"
-                      />
-                    </div>
-
-                    <div className="flex items-center bg-[linear-gradient(135deg,#6b6b6b_0%,#727272_55%,#777777_100%)] px-6 py-12 sm:px-10 lg:px-14">
-                      <div className="max-w-2xl">
-                        <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white md:text-5xl lg:text-6xl">
-                          {slide.title}
-                        </h1>
-                        <p className="mb-8 max-w-xl text-lg text-white/88 md:text-xl">{slide.subtitle}</p>
-                        <Button variant="consultor" size="lg" asChild>
-                          <a
-                            href="#/"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              if (slide.cta.route) {
-                                goToRouteTop(slide.cta.route);
-                                return;
-                              }
-                              if (slide.cta.section) {
-                                goToHomeSection(slide.cta.section);
-                              }
-                            }}
-                            className="gap-2"
-                          >
-                            {slide.cta.text}
-                            <ArrowRight className="h-4 w-4" />
-                          </a>
-                        </Button>
+                <>
+                  <div className="relative h-[500px] lg:hidden">
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="absolute inset-0 h-full w-full object-cover object-[12%_center]"
+                    />
+                    <div className="absolute inset-0 bg-foreground/55" />
+                    <div className="relative flex h-full items-center">
+                      <div className="container-prime">
+                        <div className="max-w-2xl">
+                          <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg md:text-5xl">
+                            {slide.title}
+                          </h1>
+                          <p className="mb-8 max-w-xl text-lg text-white/90 drop-shadow md:text-xl">{slide.subtitle}</p>
+                          <Button variant="consultor" size="lg" asChild>
+                            <a
+                              href="#/"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                if (slide.cta.route) {
+                                  goToRouteTop(slide.cta.route);
+                                  return;
+                                }
+                                if (slide.cta.section) {
+                                  goToHomeSection(slide.cta.section);
+                                }
+                              }}
+                              className="gap-2"
+                            >
+                              {slide.cta.text}
+                              <ArrowRight className="h-4 w-4" />
+                            </a>
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+
+                  <div className="container-prime hidden pb-14 pt-4 md:pt-6 lg:block">
+                    <div className="grid min-h-[640px] overflow-hidden rounded-[2rem] border border-border/60 bg-card shadow-xl lg:grid-cols-[minmax(420px,1.15fr)_minmax(0,0.85fr)]">
+                      <div className="relative min-h-full bg-[#686868]">
+                        <img
+                          src={slide.image}
+                          alt={slide.title}
+                          className="absolute inset-0 h-full w-full object-cover object-[12%_center]"
+                        />
+                      </div>
+
+                      <div className="flex items-center bg-[linear-gradient(135deg,#6b6b6b_0%,#727272_55%,#777777_100%)] px-6 py-12 sm:px-10 lg:px-14">
+                        <div className="max-w-2xl">
+                          <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white md:text-5xl lg:text-6xl">
+                            {slide.title}
+                          </h1>
+                          <p className="mb-8 max-w-xl text-lg text-white/88 md:text-xl">{slide.subtitle}</p>
+                          <Button variant="consultor" size="lg" asChild>
+                            <a
+                              href="#/"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                if (slide.cta.route) {
+                                  goToRouteTop(slide.cta.route);
+                                  return;
+                                }
+                                if (slide.cta.section) {
+                                  goToHomeSection(slide.cta.section);
+                                }
+                              }}
+                              className="gap-2"
+                            >
+                              {slide.cta.text}
+                              <ArrowRight className="h-4 w-4" />
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
               ) : (
                 <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
                   <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
