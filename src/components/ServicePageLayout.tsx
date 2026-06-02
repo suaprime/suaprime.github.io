@@ -13,6 +13,7 @@ interface ServiceItem {
 
 interface MethodologyStep {
   text: string;
+  icon?: LucideIcon;
 }
 
 interface ServicePageProps {
@@ -203,6 +204,13 @@ export function ServicePageLayout({
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
               {methodology.map((step, i) => (
                 <div key={i} className="relative text-center p-6 rounded-2xl bg-accent border border-border/50">
+                  {step.icon ? (
+                    <div className="mb-4 flex justify-center">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+                        <step.icon className="h-7 w-7" />
+                      </div>
+                    </div>
+                  ) : null}
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 text-primary-foreground font-heading font-bold text-lg shadow-md">
                     {i + 1}
                   </div>

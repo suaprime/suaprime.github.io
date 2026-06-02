@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { excludedClientLogos, featuredClientLogoClasses } from "@/lib/clients";
 
 const logoModules = import.meta.glob("@/assets/clients/*.{png,jpg,jpeg,jfif,webp,svg}", {
   eager: true,
@@ -21,6 +22,7 @@ const clients = Object.entries(logoModules)
     name: prettyNameFromPath(filePath),
     logo,
   }))
+  .filter((client) => !excludedClientLogos.includes(client.name.toLowerCase()))
   .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
 
 export function Portfolio() {
@@ -62,7 +64,9 @@ export function Portfolio() {
                       <img
                         src={client.logo}
                         alt={client.name}
-                        className="max-h-20 max-w-full object-contain opacity-75 grayscale saturate-[0.85] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100"
+                        className={`max-h-20 max-w-full object-contain opacity-75 grayscale saturate-[0.85] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 group-hover:saturate-100 ${
+                          featuredClientLogoClasses[client.name.toLowerCase().replace(/\s+/g, "")] ?? ""
+                        }`}
                         loading="lazy"
                       />
                     </div>

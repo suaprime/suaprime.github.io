@@ -1,5 +1,5 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import { Shield, ClipboardCheck, Settings, BookOpen, Target } from 'lucide-react';
+import { Shield, ClipboardCheck, Settings, BookOpen, Target, Search, ClipboardList, Cog, Users, ClipboardPenLine } from 'lucide-react';
 import imgAlimentos from '@/assets/services/alimentos.jpg';
 
 export default function PrimeAlimentosPage() {
@@ -38,11 +38,11 @@ export default function PrimeAlimentosPage() {
         'Preparação para auditorias internas e externas',
       ]}
       methodology={[
-        { text: 'Diagnóstico detalhado' },
-        { text: 'Planejamento customizado' },
-        { text: 'Implementação com equipe técnica' },
-        { text: 'Treinamento e capacitação' },
-        { text: 'Monitoramento de resultados' },
+        { text: 'Diagnóstico detalhado', icon: Search },
+        { text: 'Planejamento customizado', icon: ClipboardList },
+        { text: 'Implementação com equipe técnica', icon: Cog },
+        { text: 'Treinamento e capacitação', icon: Users },
+        { text: 'Monitoramento de resultados', icon: ClipboardPenLine },
       ]}
       methodologyIntro="Nossa abordagem é simples, clara e técnica:"
       ctaTitle="Pronto para evoluir a qualidade e desempenho da sua fábrica?"

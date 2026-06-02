@@ -90,7 +90,7 @@ export default function WhyPrimePage() {
         </section>
 
         {/* Missão & Visão */}
-        <section className="section-padding bg-muted/30">
+        <section className="section-padding bg-[#fff3cf]">
           <div className="container-prime">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">Propósito</span>
@@ -147,7 +147,7 @@ export default function WhyPrimePage() {
         </section>
 
         {/* Presença Geográfica */}
-        <section className="section-padding bg-muted/30">
+        <section className="section-padding bg-[#fff3cf]">
           <div className="container-prime text-center max-w-3xl mx-auto">
             <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">Presença Geográfica</span>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
@@ -170,7 +170,8 @@ export default function WhyPrimePage() {
             </div>
             <div className="max-w-2xl mx-auto space-y-4">
               {methodology.map((step, index) => (
-                <div key={index} className="flex items-center gap-4 p-5 rounded-xl bg-card border border-border/50 hover:border-primary/20 hover:shadow-card transition-all duration-300">
+                <div key={index} className="group relative flex items-center gap-4 rounded-xl bg-card p-5 border-2 border-primary/20 hover:border-primary/45 hover:shadow-card transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-y-0 left-0 w-2 bg-primary/85 transition-all duration-300 group-hover:w-3" />
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                     <step.icon className="w-5 h-5 text-primary-foreground" />
                   </div>
@@ -185,7 +186,7 @@ export default function WhyPrimePage() {
         </section>
 
         {/* Diferenciais */}
-        <section className="section-padding bg-muted/30">
+        <section className="section-padding bg-[#fff3cf]">
           <div className="container-prime">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">Diferenciais</span>
