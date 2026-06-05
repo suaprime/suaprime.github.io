@@ -102,7 +102,7 @@ export function Hero() {
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
                 <>
-                  <div className="relative h-[500px] md:hidden landscape:hidden">
+                  <div className="relative h-[500px] md:hidden">
                     <img
                       src={slide.image}
                       alt={slide.title}
@@ -122,7 +122,7 @@ export function Hero() {
                     </div>
                   </div>
 
-                  <div className="relative hidden h-[380px] landscape:block md:block md:h-[580px] lg:h-[640px]">
+                  <div className="relative hidden md:block md:h-[580px] lg:h-[640px]">
                     <img
                       src={slide.desktopImage ?? slide.image}
                       alt={slide.title}
