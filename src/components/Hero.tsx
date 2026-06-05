@@ -103,7 +103,11 @@ export function Hero() {
               {slide.split ? (
                 <>
                   <div className="relative h-[500px] lg:hidden">
-                    <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="absolute inset-0 h-full w-full object-cover object-center landscape:object-[30%_center]"
+                    />
                     <div className="absolute inset-0 bg-foreground/60" />
                     <div className="relative flex h-full items-center">
                       <div className="container-prime">
