@@ -52,6 +52,7 @@ const stats = [
 export function Hero() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [showLandscapeArtwork, setShowLandscapeArtwork] = useState(false);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -67,6 +68,16 @@ export function Hero() {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px) and (orientation: landscape) and (pointer: coarse)");
+    const syncLandscapeArtwork = () => setShowLandscapeArtwork(mediaQuery.matches);
+
+    syncLandscapeArtwork();
+    mediaQuery.addEventListener("change", syncLandscapeArtwork);
+
+    return () => mediaQuery.removeEventListener("change", syncLandscapeArtwork);
+  }, []);
 
   const renderSlideCta = (
     slide: (typeof slides)[number],
@@ -102,7 +113,7 @@ export function Hero() {
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
                 <>
-                  <div className="relative h-[500px] landscape:hidden lg:hidden">
+                  <div className={`relative h-[500px] lg:hidden ${showLandscapeArtwork ? "hidden" : "block"}`}>
                     <img
                       src={slide.image}
                       alt={slide.title}
@@ -122,7 +133,11 @@ export function Hero() {
                     </div>
                   </div>
 
-                  <div className="relative hidden h-[360px] overflow-hidden bg-[#686868] landscape:block landscape:md:h-[420px] lg:hidden">
+                  <div
+                    className={`relative h-[360px] overflow-hidden bg-[#686868] lg:hidden ${
+                      showLandscapeArtwork ? "block" : "hidden"
+                    }`}
+                  >
                     <img
                       src={slide.desktopImage ?? slide.image}
                       alt={slide.title}
