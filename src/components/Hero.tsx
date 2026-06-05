@@ -127,7 +127,7 @@ export function Hero() {
                             {slide.title}
                           </h1>
                           <p className="mb-8 text-lg text-white/90 drop-shadow">{slide.subtitle}</p>
-                          {renderSlideCta(slide)}
+                          {renderSlideCta(slide, "prime", "mt-6 gap-2")}
                         </div>
                       </div>
                     </div>
