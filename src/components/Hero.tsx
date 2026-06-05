@@ -102,11 +102,11 @@ export function Hero() {
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
                 <>
-                  <div className="relative h-[500px] lg:hidden">
+                  <div className="relative h-[500px] landscape:hidden lg:hidden">
                     <img
                       src={slide.image}
                       alt={slide.title}
-                      className="absolute inset-0 h-full w-full object-cover object-[18%_center] landscape:object-[30%_center]"
+                      className="absolute inset-0 h-full w-full object-cover object-[18%_center]"
                     />
                     <div className="absolute inset-0 bg-foreground/60" />
                     <div className="relative flex h-full items-center">
@@ -119,6 +119,17 @@ export function Hero() {
                           {renderSlideCta(slide)}
                         </div>
                       </div>
+                    </div>
+                  </div>
+
+                  <div className="relative hidden h-[360px] overflow-hidden bg-[#686868] landscape:block landscape:md:h-[420px] lg:hidden">
+                    <img
+                      src={slide.desktopImage ?? slide.image}
+                      alt={slide.title}
+                      className="absolute inset-0 h-full w-full object-contain object-center"
+                    />
+                    <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8">
+                      {renderSlideCta(slide)}
                     </div>
                   </div>
 
