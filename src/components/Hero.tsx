@@ -122,7 +122,7 @@ export function Hero() {
                     <img
                       src={slide.desktopImage ?? slide.image}
                       alt={slide.title}
-                      className="absolute inset-0 h-full w-full object-cover object-[28%_center]"
+                      className="absolute inset-0 h-full w-full object-cover object-[18%_center]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/12 via-black/8 to-black/18" />
                     <div className="relative flex h-full items-center">
