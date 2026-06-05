@@ -106,7 +106,7 @@ export function Hero() {
                     <img
                       src={slide.image}
                       alt={slide.title}
-                      className="absolute inset-0 h-full w-full object-cover object-[30%_center] landscape:object-[30%_center]"
+                      className="absolute inset-0 h-full w-full object-cover object-[18%_center] landscape:object-[30%_center]"
                     />
                     <div className="absolute inset-0 bg-foreground/60" />
                     <div className="relative flex h-full items-center">
