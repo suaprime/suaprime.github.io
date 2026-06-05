@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroSlide1 from "@/assets/hero/hero-prime-capa.jpg";
+import heroSlide1Desktop from "@/assets/hero/Prime Consultoria.png";
 import heroSlide2 from "@/assets/hero/slide-2.jpg";
 import heroSlide3 from "@/assets/hero/slide-3.jpg";
 import { goToHomeSection, goToRouteTop } from "@/lib/navigation";
@@ -10,6 +11,7 @@ import { goToHomeSection, goToRouteTop } from "@/lib/navigation";
 const slides = [
   {
     image: heroSlide1,
+    desktopImage: heroSlide1Desktop,
     title: "Consultoria Industrial Especializada em Alimentos e Bebidas",
     subtitle:
       "Excelência em consultoria industrial para negócios que valorizam resultados, qualidade e evolução contínua.",
@@ -66,6 +68,32 @@ export function Hero() {
     };
   }, [emblaApi]);
 
+  const renderSlideCta = (
+    slide: (typeof slides)[number],
+    variant: "prime" | "consultor" = "prime",
+    className = "gap-2",
+  ) => (
+    <Button variant={variant} size="lg" asChild>
+      <a
+        href="#/"
+        onClick={(e) => {
+          e.preventDefault();
+          if (slide.cta.route) {
+            goToRouteTop(slide.cta.route);
+            return;
+          }
+          if (slide.cta.section) {
+            goToHomeSection(slide.cta.section);
+          }
+        }}
+        className={className}
+      >
+        {slide.cta.text}
+        <ArrowRight className="h-4 w-4" />
+      </a>
+    </Button>
+  );
+
   return (
     <section id="home" className="relative pt-20">
       <div className="relative overflow-hidden" ref={emblaRef}>
@@ -74,7 +102,7 @@ export function Hero() {
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
                 <>
-                  <div className="relative h-[500px] lg:hidden">
+                  <div className="relative h-[500px] md:hidden landscape:hidden">
                     <img
                       src={slide.image}
                       alt={slide.title}
@@ -88,65 +116,23 @@ export function Hero() {
                             {slide.title}
                           </h1>
                           <p className="mb-8 max-w-xl text-lg text-white/90 drop-shadow md:text-xl">{slide.subtitle}</p>
-                          <Button variant="consultor" size="lg" asChild>
-                            <a
-                              href="#/"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                if (slide.cta.route) {
-                                  goToRouteTop(slide.cta.route);
-                                  return;
-                                }
-                                if (slide.cta.section) {
-                                  goToHomeSection(slide.cta.section);
-                                }
-                              }}
-                              className="gap-2"
-                            >
-                              {slide.cta.text}
-                              <ArrowRight className="h-4 w-4" />
-                            </a>
-                          </Button>
+                          {renderSlideCta(slide)}
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="container-prime hidden pb-14 pt-4 md:pt-6 lg:block">
-                    <div className="grid min-h-[640px] overflow-hidden rounded-[2rem] border border-border/60 bg-card shadow-xl lg:grid-cols-[minmax(420px,1.15fr)_minmax(0,0.85fr)]">
-                      <div className="relative min-h-full bg-[#686868]">
-                        <img
-                          src={slide.image}
-                          alt={slide.title}
-                          className="absolute inset-0 h-full w-full object-cover object-[12%_center]"
-                        />
-                      </div>
-
-                      <div className="flex items-center bg-[linear-gradient(135deg,#6b6b6b_0%,#727272_55%,#777777_100%)] px-6 py-12 sm:px-10 lg:px-14">
-                        <div className="max-w-2xl">
-                          <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white md:text-5xl lg:text-6xl">
-                            {slide.title}
-                          </h1>
-                          <p className="mb-8 max-w-xl text-lg text-white/88 md:text-xl">{slide.subtitle}</p>
-                          <Button variant="consultor" size="lg" asChild>
-                            <a
-                              href="#/"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                if (slide.cta.route) {
-                                  goToRouteTop(slide.cta.route);
-                                  return;
-                                }
-                                if (slide.cta.section) {
-                                  goToHomeSection(slide.cta.section);
-                                }
-                              }}
-                              className="gap-2"
-                            >
-                              {slide.cta.text}
-                              <ArrowRight className="h-4 w-4" />
-                            </a>
-                          </Button>
+                  <div className="relative hidden h-[380px] landscape:block md:block md:h-[580px] lg:h-[640px]">
+                    <img
+                      src={slide.desktopImage ?? slide.image}
+                      alt={slide.title}
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/12 via-black/8 to-black/18" />
+                    <div className="relative flex h-full items-center">
+                      <div className="container-prime flex w-full">
+                        <div className="ml-auto w-full max-w-[360px] pt-48 sm:max-w-[420px] sm:pt-56 md:max-w-[460px] md:pt-64 lg:max-w-[520px] lg:pt-72">
+                          {renderSlideCta(slide)}
                         </div>
                       </div>
                     </div>
