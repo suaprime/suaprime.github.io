@@ -103,19 +103,15 @@ export function Hero() {
               {slide.split ? (
                 <>
                   <div className="relative h-[500px] md:hidden">
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="absolute inset-0 h-full w-full object-cover object-[12%_center]"
-                    />
-                    <div className="absolute inset-0 bg-foreground/55" />
+                    <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-foreground/60" />
                     <div className="relative flex h-full items-center">
                       <div className="container-prime">
                         <div className="max-w-2xl">
-                          <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg md:text-5xl">
+                          <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg">
                             {slide.title}
                           </h1>
-                          <p className="mb-8 max-w-xl text-lg text-white/90 drop-shadow md:text-xl">{slide.subtitle}</p>
+                          <p className="mb-8 text-lg text-white/90 drop-shadow">{slide.subtitle}</p>
                           {renderSlideCta(slide)}
                         </div>
                       </div>
