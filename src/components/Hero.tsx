@@ -132,7 +132,7 @@ export function Hero() {
                     <div className="relative flex h-full items-center">
                       <div className="container-prime flex w-full">
                         <div className="ml-auto w-full max-w-[360px] pt-48 sm:max-w-[420px] sm:pt-56 md:max-w-[460px] md:pt-64 lg:max-w-[520px] lg:pt-72">
-                          {renderSlideCta(slide, "prime", "mt-6 gap-2 md:-ml-10 lg:-ml-12")}
+                          {renderSlideCta(slide, "prime", "mt-8 gap-2 md:-ml-14 lg:-ml-16")}
                         </div>
                       </div>
                     </div>
