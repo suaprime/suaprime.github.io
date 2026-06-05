@@ -126,8 +126,8 @@ export function Hero() {
                           <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg">
                             {slide.title}
                           </h1>
-                          <p className="mb-8 text-lg text-white/90 drop-shadow">{slide.subtitle}</p>
-                          <div className="mt-6">{renderSlideCta(slide)}</div>
+                          <p className="mb-0 text-lg text-white/90 drop-shadow">{slide.subtitle}</p>
+                          <div className="pt-12">{renderSlideCta(slide)}</div>
                         </div>
                       </div>
                     </div>
@@ -143,7 +143,7 @@ export function Hero() {
                       alt={slide.title}
                       className="absolute inset-0 h-full w-full object-contain object-center"
                     />
-                    <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8">
+                    <div className="absolute bottom-3 right-6 sm:bottom-4 sm:right-8">
                       {renderSlideCta(slide)}
                     </div>
                   </div>
