@@ -2,8 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroSlide1 from "@/assets/hero/hero-prime-capa.jpg";
-import heroSlide1Desktop from "@/assets/hero/Prime Consultoria.png";
+import heroSlide1 from "@/assets/hero/capa-sem-texto.jpg";
 import heroSlide2 from "@/assets/hero/slide-2.jpg";
 import heroSlide3 from "@/assets/hero/slide-3.jpg";
 import { goToHomeSection, goToRouteTop } from "@/lib/navigation";
@@ -11,10 +10,10 @@ import { goToHomeSection, goToRouteTop } from "@/lib/navigation";
 const slides = [
   {
     image: heroSlide1,
-    desktopImage: heroSlide1Desktop,
-    title: "Consultoria Industrial Especializada em Alimentos e Bebidas",
+    title: "Prime Consultoria",
+    eyebrow: "Seu sucesso é nossa prioridade!",
     subtitle:
-      "Excelência em consultoria industrial para negócios que valorizam resultados, qualidade e evolução contínua.",
+      "Consultoria industrial especializada em alimentos e bebidas.",
     cta: { text: "Fale conosco", section: "contato" },
     split: true,
     centered: true,
@@ -52,7 +51,6 @@ const stats = [
 export function Hero() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [showLandscapeArtwork, setShowLandscapeArtwork] = useState(false);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -68,16 +66,6 @@ export function Hero() {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1023px) and (orientation: landscape) and (pointer: coarse)");
-    const syncLandscapeArtwork = () => setShowLandscapeArtwork(mediaQuery.matches);
-
-    syncLandscapeArtwork();
-    mediaQuery.addEventListener("change", syncLandscapeArtwork);
-
-    return () => mediaQuery.removeEventListener("change", syncLandscapeArtwork);
-  }, []);
 
   const renderSlideCta = (
     slide: (typeof slides)[number],
@@ -112,58 +100,33 @@ export function Hero() {
           {slides.map((slide, index) => (
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
-                <>
-                  <div className={`relative h-[500px] lg:hidden ${showLandscapeArtwork ? "hidden" : "block"}`}>
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="absolute inset-0 h-full w-full object-cover object-[18%_center]"
-                    />
-                    <div className="absolute inset-0 bg-foreground/60" />
-                    <div className="relative flex h-full items-center">
-                      <div className="container-prime">
-                        <div className="max-w-2xl">
-                          <h1 className="mb-4 text-balance text-3xl font-heading font-bold text-white drop-shadow-lg">
-                            {slide.title}
-                          </h1>
-                          <p className="mb-0 text-lg text-white/90 drop-shadow">{slide.subtitle}</p>
-                          <div className="pt-12">{renderSlideCta(slide)}</div>
-                        </div>
+                <div className="relative h-[500px] overflow-hidden md:h-[580px] lg:h-[640px]">
+                  <img
+                    src={slide.image}
+                    alt="Equipe Prime Consultoria"
+                    className="absolute inset-0 h-full w-full object-cover object-[42%_center] lg:object-[22%_center]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/42 to-black/18 lg:from-black/8 lg:via-black/18 lg:to-black/72" />
+                  <div className="relative flex h-full items-center">
+                    <div className="container-prime flex w-full">
+                      <div className="ml-auto max-w-[310px] text-white sm:max-w-[620px] lg:w-[48%] lg:max-w-[680px]">
+                        <h1 className="mb-4 text-4xl font-heading font-extrabold leading-[0.95] drop-shadow-lg sm:text-6xl lg:text-7xl xl:text-8xl">
+                          Prime
+                          <span className="block">Consultoria</span>
+                        </h1>
+                        {slide.eyebrow ? (
+                          <p className="mb-8 text-sm font-semibold uppercase text-white/92 drop-shadow sm:text-base lg:text-lg">
+                            {slide.eyebrow}
+                          </p>
+                        ) : null}
+                        <p className="mb-8 max-w-[460px] text-balance text-xl font-light italic leading-tight text-white/92 drop-shadow sm:text-3xl lg:text-4xl">
+                          {slide.subtitle}
+                        </p>
+                        {renderSlideCta(slide)}
                       </div>
                     </div>
                   </div>
-
-                  <div
-                    className={`relative h-[360px] overflow-hidden bg-[#686868] lg:hidden ${
-                      showLandscapeArtwork ? "block" : "hidden"
-                    }`}
-                  >
-                    <img
-                      src={slide.desktopImage ?? slide.image}
-                      alt={slide.title}
-                      className="absolute inset-0 h-full w-full object-contain object-center"
-                    />
-                    <div className="absolute bottom-3 right-6 sm:bottom-4 sm:right-8">
-                      {renderSlideCta(slide)}
-                    </div>
-                  </div>
-
-                  <div className="relative hidden lg:block lg:h-[640px]">
-                    <img
-                      src={slide.desktopImage ?? slide.image}
-                      alt={slide.title}
-                      className="absolute inset-0 h-full w-full object-cover object-[18%_center]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/12 via-black/8 to-black/18" />
-                    <div className="relative flex h-full items-center">
-                      <div className="container-prime flex w-full">
-                        <div className="ml-auto w-full max-w-[360px] pt-48 sm:max-w-[420px] sm:pt-56 md:max-w-[460px] md:pt-64 lg:max-w-[520px] lg:pt-72">
-                          {renderSlideCta(slide, "prime", "mt-8 gap-2 md:-ml-14 lg:-ml-16 min-[1600px]:mt-20")}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </>
+                </div>
               ) : (
                 <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
                   <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
