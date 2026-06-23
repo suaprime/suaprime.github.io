@@ -100,33 +100,58 @@ export function Hero() {
           {slides.map((slide, index) => (
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
-                <div className="relative h-[500px] overflow-hidden md:h-[580px] lg:h-[640px]">
-                  <img
-                    src={slide.image}
-                    alt="Equipe Prime Consultoria"
-                    className="absolute inset-0 h-full w-full object-cover object-[16%_center] lg:object-[22%_center]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/22 to-black/8 lg:from-black/0 lg:via-black/8 lg:to-black/48" />
-                  <div className="relative flex h-full items-center">
-                    <div className="container-prime flex w-full">
-                      <div className="ml-auto max-w-[310px] text-white sm:max-w-[620px] lg:w-[48%] lg:max-w-[680px]">
-                        <h1 className="mb-4 text-4xl font-heading font-extrabold leading-[0.95] drop-shadow-lg sm:text-6xl lg:text-7xl xl:text-8xl">
-                          Prime
-                          <span className="block">Consultoria</span>
-                        </h1>
-                        {slide.eyebrow ? (
-                          <p className="mb-8 text-sm font-semibold uppercase text-white/92 drop-shadow sm:text-base lg:text-lg">
-                            {slide.eyebrow}
-                          </p>
-                        ) : null}
-                        <p className="mb-8 max-w-[18rem] text-pretty text-xl font-medium italic leading-[1.35] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] sm:max-w-[34rem] sm:text-3xl sm:font-light sm:leading-[1.25] lg:max-w-[42rem] lg:text-4xl">
-                          {slide.subtitle}
+                <>
+                  <div className="bg-[#565755] text-white md:hidden">
+                    <img
+                      src={slide.image}
+                      alt="Equipe Prime Consultoria"
+                      className="aspect-[33/14] w-full object-contain object-left-top"
+                    />
+                    <div className="container-prime pb-16 pt-7">
+                      <h1 className="mb-4 text-4xl font-heading font-extrabold leading-[0.95] drop-shadow-lg">
+                        Prime
+                        <span className="block">Consultoria</span>
+                      </h1>
+                      {slide.eyebrow ? (
+                        <p className="mb-6 text-sm font-semibold uppercase text-white/92 drop-shadow">
+                          {slide.eyebrow}
                         </p>
-                        {renderSlideCta(slide)}
+                      ) : null}
+                      <p className="mb-8 max-w-[20rem] text-pretty text-xl font-medium italic leading-[1.35] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+                        {slide.subtitle}
+                      </p>
+                      {renderSlideCta(slide)}
+                    </div>
+                  </div>
+
+                  <div className="relative hidden h-[580px] overflow-hidden md:block lg:h-[640px]">
+                    <img
+                      src={slide.image}
+                      alt="Equipe Prime Consultoria"
+                      className="absolute inset-0 h-full w-full object-cover object-[16%_center] lg:object-[22%_center]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/22 to-black/8 lg:from-black/0 lg:via-black/8 lg:to-black/48" />
+                    <div className="relative flex h-full items-center">
+                      <div className="container-prime flex w-full">
+                        <div className="ml-auto max-w-[620px] text-white lg:w-[48%] lg:max-w-[680px]">
+                          <h1 className="mb-4 text-6xl font-heading font-extrabold leading-[0.95] drop-shadow-lg lg:text-7xl xl:text-8xl">
+                            Prime
+                            <span className="block">Consultoria</span>
+                          </h1>
+                          {slide.eyebrow ? (
+                            <p className="mb-8 text-base font-semibold uppercase text-white/92 drop-shadow lg:text-lg">
+                              {slide.eyebrow}
+                            </p>
+                          ) : null}
+                          <p className="mb-8 max-w-[34rem] text-pretty text-3xl font-light italic leading-[1.25] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] lg:max-w-[42rem] lg:text-4xl">
+                            {slide.subtitle}
+                          </p>
+                          {renderSlideCta(slide)}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </>
               ) : (
                 <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
                   <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
