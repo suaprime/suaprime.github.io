@@ -119,8 +119,10 @@ export function Hero() {
                             {slide.eyebrow}
                           </p>
                         ) : null}
-                        <p className="mb-8 max-w-[460px] rounded-lg bg-black/35 px-3 py-2 text-balance text-xl font-medium italic leading-tight text-white shadow-md backdrop-blur-[1px] sm:bg-transparent sm:px-0 sm:py-0 sm:text-3xl sm:font-light sm:text-white/92 sm:shadow-none sm:backdrop-blur-0 lg:text-4xl">
-                          {slide.subtitle}
+                        <p className="mb-8 max-w-[18rem] text-pretty text-xl font-medium italic leading-[1.35] text-white drop-shadow-md sm:max-w-[34rem] sm:text-3xl sm:font-light sm:leading-[1.25] lg:max-w-[42rem] lg:text-4xl">
+                          <span className="box-decoration-clone rounded-md bg-black/45 px-3 py-1.5 shadow-md backdrop-blur-[1px] sm:bg-black/25 sm:px-2.5 sm:py-1">
+                            {slide.subtitle}
+                          </span>
                         </p>
                         {renderSlideCta(slide)}
                       </div>
