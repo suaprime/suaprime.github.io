@@ -179,27 +179,27 @@ export function ServicePageLayout({
 
         {/* Benefícios - Full-width colored section */}
         <section
-          className="py-16 md:py-20 text-foreground"
+          className="py-16 md:py-20 text-white"
           style={{
-            backgroundColor: '#fff3cf',
-            backgroundImage: `linear-gradient(rgba(255, 243, 207, 0.86), rgba(255, 243, 207, 0.86)), url(${estampaPrime})`,
+            backgroundColor: '#20a857',
+            backgroundImage: `url(${estampaPrime})`,
             backgroundPosition: 'center',
             backgroundRepeat: 'repeat',
-            backgroundSize: '640px auto',
+            backgroundSize: '960px auto',
           }}
         >
           <div className="container-prime">
             <div className="text-center mb-12">
-              <span className="inline-block text-sm font-semibold text-primary uppercase mb-3">
+              <span className="inline-block text-sm font-semibold text-secondary uppercase mb-3">
                 Benefícios
               </span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-white drop-shadow-sm">
                 Benefícios que sua empresa vai conquistar
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {benefits.map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-white/86 backdrop-blur-sm border border-primary/10 shadow-sm">
+                <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-white/95 border border-white/70 shadow-md">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                   <p className="font-medium text-sm text-foreground">{item}</p>
                 </div>
