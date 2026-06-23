@@ -106,7 +106,7 @@ export function Hero() {
                     alt="Equipe Prime Consultoria"
                     className="absolute inset-0 h-full w-full object-cover object-[16%_center] lg:object-[22%_center]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/42 to-black/18 lg:from-black/8 lg:via-black/18 lg:to-black/72" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/22 to-black/8 lg:from-black/0 lg:via-black/8 lg:to-black/48" />
                   <div className="relative flex h-full items-center">
                     <div className="container-prime flex w-full">
                       <div className="ml-auto max-w-[310px] text-white sm:max-w-[620px] lg:w-[48%] lg:max-w-[680px]">
@@ -119,10 +119,8 @@ export function Hero() {
                             {slide.eyebrow}
                           </p>
                         ) : null}
-                        <p className="mb-8 max-w-[18rem] text-pretty text-xl font-medium italic leading-[1.35] text-white drop-shadow-md sm:max-w-[34rem] sm:text-3xl sm:font-light sm:leading-[1.25] lg:max-w-[42rem] lg:text-4xl">
-                          <span className="box-decoration-clone rounded-md bg-black/45 px-3 py-1.5 shadow-md backdrop-blur-[1px] sm:bg-black/25 sm:px-2.5 sm:py-1">
-                            {slide.subtitle}
-                          </span>
+                        <p className="mb-8 max-w-[18rem] text-pretty text-xl font-medium italic leading-[1.35] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] sm:max-w-[34rem] sm:text-3xl sm:font-light sm:leading-[1.25] lg:max-w-[42rem] lg:text-4xl">
+                          {slide.subtitle}
                         </p>
                         {renderSlideCta(slide)}
                       </div>
