@@ -1,7 +1,7 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
+import { CheckCircle2, MessageCircle } from 'lucide-react';
 import flowerWatermark from '@/assets/flower-watermark.png';
 import estampaPrime from '@/assets/estampa-prime.png';
 import type { LucideIcon } from 'lucide-react';
@@ -220,23 +220,24 @@ export function ServicePageLayout({
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{methodologyIntro}</p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5 max-w-6xl mx-auto">
               {methodology.map((step, i) => (
-                <div key={i} className="relative text-center p-6 rounded-2xl bg-accent border border-border/50">
+                <div key={i} className="group relative min-h-[240px] overflow-hidden rounded-lg bg-[#8f8f8f] px-6 pb-8 pt-8 text-center text-white shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-secondary" />
+                  <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/10 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="relative mb-9 min-h-[92px]">
+                    <span className="absolute left-0 top-0 font-heading text-8xl font-extrabold leading-none text-white">
+                      {i + 1}
+                    </span>
                   {step.icon ? (
-                    <div className="mb-4 flex justify-center">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary">
-                        <step.icon className="h-7 w-7" />
+                      <div className="absolute right-0 top-1 flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white text-primary shadow-lg ring-4 ring-primary">
+                        <step.icon className="h-10 w-10" />
                       </div>
-                    </div>
                   ) : null}
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 text-primary-foreground font-heading font-bold text-lg shadow-md">
-                    {i + 1}
                   </div>
-                  <p className="text-foreground font-semibold text-sm">{step.text}</p>
-                  {i < methodology.length - 1 && (
-                    <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-primary z-10" />
-                  )}
+                  <p className="relative mx-auto max-w-[11rem] text-[15px] font-semibold leading-relaxed text-white">
+                    {step.text}
+                  </p>
                 </div>
               ))}
             </div>
