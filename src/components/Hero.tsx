@@ -104,7 +104,7 @@ export function Hero() {
                   <img
                     src={slide.image}
                     alt="Equipe Prime Consultoria"
-                    className="absolute inset-0 h-full w-full object-cover object-[42%_center] lg:object-[22%_center]"
+                    className="absolute inset-0 h-full w-full object-cover object-[16%_center] lg:object-[22%_center]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/42 to-black/18 lg:from-black/8 lg:via-black/18 lg:to-black/72" />
                   <div className="relative flex h-full items-center">
