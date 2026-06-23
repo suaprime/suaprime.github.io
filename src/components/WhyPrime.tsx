@@ -40,12 +40,12 @@ export function WhyPrime() {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+            <span className="inline-block text-sm font-semibold text-secondary uppercase mb-4">
               Por que a Prime?
             </span>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
               Nossos diferenciais geram resultados concretos para{' '}
-              <span className="text-primary">sua empresa</span>
+              <span className="text-secondary">sua empresa</span>
             </h2>
             <p className="text-lg text-white/88 mb-4">
               Desde 2015, a Prime Consultoria atua lado a lado com indústrias que buscam organização, 
@@ -59,7 +59,7 @@ export function WhyPrime() {
             <div className="grid grid-cols-2 gap-3 mb-8">
               {highlights.map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0" />
                   <span className="font-semibold text-white text-sm uppercase tracking-wide">{item}</span>
                 </div>
               ))}

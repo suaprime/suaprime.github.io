@@ -106,10 +106,10 @@ export function ServicePageLayout({
           className="py-5"
           style={{
             backgroundColor: '#fff3cf',
-            backgroundImage: `linear-gradient(rgba(255, 243, 207, 0.82), rgba(255, 243, 207, 0.82)), url(${estampaPrime})`,
+            backgroundImage: `linear-gradient(rgba(255, 243, 207, 0.88), rgba(255, 243, 207, 0.88)), url(${flowerWatermark})`,
             backgroundPosition: 'center',
             backgroundRepeat: 'repeat-x',
-            backgroundSize: '520px auto',
+            backgroundSize: '240px auto',
           }}
         >
           <div className="container-prime flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
@@ -178,10 +178,19 @@ export function ServicePageLayout({
         </section>
 
         {/* Benefícios - Full-width colored section */}
-        <section className="py-16 md:py-20 bg-primary text-primary-foreground">
+        <section
+          className="py-16 md:py-20 text-foreground"
+          style={{
+            backgroundColor: '#fff3cf',
+            backgroundImage: `linear-gradient(rgba(255, 243, 207, 0.86), rgba(255, 243, 207, 0.86)), url(${estampaPrime})`,
+            backgroundPosition: 'center',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '640px auto',
+          }}
+        >
           <div className="container-prime">
             <div className="text-center mb-12">
-              <span className="inline-block text-sm font-semibold text-primary-foreground/80 uppercase tracking-wider mb-3">
+              <span className="inline-block text-sm font-semibold text-primary uppercase mb-3">
                 Benefícios
               </span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold">
@@ -190,9 +199,9 @@ export function ServicePageLayout({
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {benefits.map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20">
-                  <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0" />
-                  <p className="text-primary-foreground font-medium text-sm">{item}</p>
+                <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-white/86 backdrop-blur-sm border border-primary/10 shadow-sm">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                  <p className="font-medium text-sm text-foreground">{item}</p>
                 </div>
               ))}
             </div>

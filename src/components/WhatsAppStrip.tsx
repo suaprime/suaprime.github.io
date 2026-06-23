@@ -1,5 +1,5 @@
 import { MessageCircle } from 'lucide-react';
-import estampaPrime from '@/assets/estampa-prime.png';
+import flowerWatermark from '@/assets/flower-watermark.png';
 
 export function WhatsAppStrip() {
   return (
@@ -7,10 +7,10 @@ export function WhatsAppStrip() {
       className="py-5"
       style={{
         backgroundColor: '#fff3cf',
-        backgroundImage: `linear-gradient(rgba(255, 243, 207, 0.82), rgba(255, 243, 207, 0.82)), url(${estampaPrime})`,
+        backgroundImage: `linear-gradient(rgba(255, 243, 207, 0.88), rgba(255, 243, 207, 0.88)), url(${flowerWatermark})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'repeat-x',
-        backgroundSize: '520px auto',
+        backgroundSize: '240px auto',
       }}
     >
       <div className="container-prime flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
