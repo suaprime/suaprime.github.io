@@ -24,7 +24,7 @@ export function WhyPrime() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div
             className={`overflow-hidden rounded-[2rem] bg-[#6f6f6f] shadow-xl transition-all duration-700 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? 'translate-y-0' : 'translate-y-6'
             }`}
           >
             <img
@@ -37,7 +37,7 @@ export function WhyPrime() {
 
           <div
             className={`rounded-[2rem] bg-[#6f6f6f] px-6 py-8 text-white shadow-xl transition-all duration-700 delay-150 sm:px-8 md:px-10 md:py-10 lg:px-12 lg:py-14 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? 'translate-y-0' : 'translate-y-6'
             }`}
           >
             <span className="inline-block text-sm font-semibold text-secondary uppercase mb-4">

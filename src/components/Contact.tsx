@@ -1,5 +1,7 @@
+import type { FormEvent } from 'react';
 import { Mail, Phone, MapPin, Instagram, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { toast } from '@/hooks/use-toast';
 
 const contactInfo = [
   {
@@ -28,6 +30,52 @@ const socialLinks = [
 ];
 
 export function Contact() {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get('name') || '').trim();
+    const phone = String(formData.get('phone') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const service = String(formData.get('service') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+
+    if (!name || !phone || !email) {
+      toast({
+        title: 'Confira os campos obrigatórios',
+        description: 'Nome, telefone e e-mail são necessários para iniciar o atendimento.',
+      });
+      return;
+    }
+
+    const serviceLabels: Record<string, string> = {
+      alimentos: 'Prime Alimentos e Bebidas',
+      producao: 'Prime Produção e Qualidade',
+      ambiental: 'Prime Ambiental',
+    };
+
+    const whatsappMessage = [
+      'Olá, gostaria de falar com um especialista da Prime.',
+      '',
+      `Nome: ${name}`,
+      `Telefone: ${phone}`,
+      `E-mail: ${email}`,
+      service ? `Serviço de interesse: ${serviceLabels[service] || service}` : null,
+      message ? `Mensagem: ${message}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const url = `https://api.whatsapp.com/send?phone=5573988043664&text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+
+    toast({
+      title: 'Mensagem pronta no WhatsApp',
+      description: 'Revise e envie a conversa para a equipe da Prime.',
+    });
+  };
+
   return (
     <section id="contato" className="section-padding">
       <div className="container-prime">
@@ -95,7 +143,7 @@ export function Contact() {
             <h3 className="text-xl font-heading font-bold text-foreground mb-6">
               Fale com um especialista
             </h3>
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -164,8 +212,9 @@ export function Contact() {
                   placeholder="Conte-nos sobre sua necessidade..."
                 />
               </div>
-              <Button variant="prime" size="lg" className="w-full">
-                Enviar mensagem
+              <Button type="submit" variant="prime" size="lg" className="w-full">
+                <MessageCircle className="h-4 w-4" />
+                Enviar pelo WhatsApp
               </Button>
             </form>
           </div>

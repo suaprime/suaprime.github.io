@@ -106,6 +106,7 @@ export function Hero() {
                       src={slide.image}
                       alt="Equipe Prime Consultoria"
                       className="aspect-[33/14] w-full object-contain object-left-top"
+                      fetchPriority="high"
                     />
                     <div className="container-prime pb-16 pt-7">
                       <h1 className="mb-4 text-4xl font-heading font-extrabold leading-[0.95] drop-shadow-lg">
@@ -129,6 +130,7 @@ export function Hero() {
                       src={slide.image}
                       alt="Equipe Prime Consultoria"
                       className="absolute inset-0 h-full w-full object-cover object-[16%_center] lg:object-[22%_center]"
+                      fetchPriority="high"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/22 to-black/8 lg:from-black/0 lg:via-black/8 lg:to-black/48" />
                     <div className="relative flex h-full items-center">
@@ -154,7 +156,13 @@ export function Hero() {
                 </>
               ) : (
                 <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
-                  <img src={slide.image} alt={slide.title} className="absolute inset-0 h-full w-full object-cover" />
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 bg-foreground/60" />
                   <div className="relative flex h-full items-center">
                     <div className={`container-prime ${slide.centered ? "text-center" : ""}`}>
