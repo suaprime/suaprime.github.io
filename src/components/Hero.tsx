@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroSlide1 from "@/assets/hero/capa-sem-texto.jpg";
+import heroSlide1Mobile from "@/assets/hero/prime-consultoria-mobile.png";
 import heroSlide2 from "@/assets/hero/slide-2.jpg";
 import heroSlide3 from "@/assets/hero/slide-3.jpg";
 import { goToHomeSection, goToRouteTop } from "@/lib/navigation";
@@ -101,26 +102,25 @@ export function Hero() {
             <div key={index} className="relative min-w-0 flex-[0_0_100%]">
               {slide.split ? (
                 <>
-                  <div className="bg-[#565755] text-white md:hidden">
+                  <div className="relative aspect-[36/41] overflow-hidden bg-[#565755] text-white md:hidden">
                     <img
-                      src={slide.image}
+                      src={heroSlide1Mobile}
                       alt="Equipe Prime Consultoria"
-                      className="aspect-[33/14] w-full object-contain object-left-top"
+                      className="absolute inset-0 h-full w-full object-cover object-bottom"
                     />
-                    <div className="container-prime pb-16 pt-7">
-                      <h1 className="mb-4 text-4xl font-heading font-extrabold leading-[0.95] drop-shadow-lg">
+                    <div className="absolute inset-x-0 top-0 px-[8%] pt-[8%] font-heading">
+                      <h1 className="mb-3 text-[32px] font-extrabold leading-[1.02] drop-shadow-lg min-[390px]:text-4xl">
                         Prime
                         <span className="block">Consultoria</span>
                       </h1>
                       {slide.eyebrow ? (
-                        <p className="mb-6 text-sm font-semibold uppercase text-white/92 drop-shadow">
+                        <p className="mb-3 text-[11px] font-semibold uppercase leading-tight text-white drop-shadow min-[390px]:text-xs">
                           {slide.eyebrow}
                         </p>
                       ) : null}
-                      <p className="mb-8 max-w-[20rem] text-pretty text-xl font-medium italic leading-[1.35] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+                      <p className="max-w-[10.5rem] text-pretty text-[13px] font-medium italic leading-[1.38] text-white drop-shadow-[0_2px_7px_rgba(0,0,0,0.9)] min-[390px]:max-w-[11.5rem] min-[390px]:text-sm">
                         {slide.subtitle}
                       </p>
-                      {renderSlideCta(slide)}
                     </div>
                   </div>
 
@@ -153,7 +153,7 @@ export function Hero() {
                   </div>
                 </>
               ) : (
-                <div className="relative h-[500px] md:h-[580px] lg:h-[640px]">
+                <div className="relative aspect-[36/41] md:aspect-auto md:h-[580px] lg:h-[640px]">
                   <img
                     src={slide.image}
                     alt={slide.title}

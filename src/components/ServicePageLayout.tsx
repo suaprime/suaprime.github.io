@@ -220,9 +220,9 @@ export function ServicePageLayout({
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{methodologyIntro}</p>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5 max-w-6xl mx-auto">
+            <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-auto sm:grid sm:max-w-6xl sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-5">
               {methodology.map((step, i) => (
-                <div key={i} className="group relative min-h-[240px] overflow-hidden rounded-lg bg-[#8f8f8f] px-6 pb-8 pt-8 text-center text-white shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div key={i} className="group relative min-h-[260px] w-[82%] shrink-0 snap-center overflow-hidden rounded-lg bg-[#8f8f8f] px-6 pb-8 pt-8 text-center font-heading text-white shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[250px] sm:w-auto">
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-secondary" />
                   <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/10 transition-transform duration-300 group-hover:scale-110" />
                   <div className="relative mb-9 min-h-[92px]">
@@ -235,7 +235,7 @@ export function ServicePageLayout({
                       </div>
                   ) : null}
                   </div>
-                  <p className="relative mx-auto max-w-[11rem] text-[15px] font-semibold leading-relaxed text-white">
+                  <p className="relative mx-auto max-w-[13rem] text-[17px] font-semibold leading-relaxed text-white">
                     {step.text}
                   </p>
                 </div>
